@@ -5,190 +5,122 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
     <style>
-        /* From Uiverse.io by mymiamo */ 
-        body{
+        /* Global Styles */
+        body {
             background-color: #ebd9b4;
-        }
-.card {
-    margin: 10rem 25rem 0rem 25rem ;
-  width: 600px;
-  padding: 40px;
-  border: 1px solid #0d1117;
-  border-radius: 10px;
-  background-color: #000;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-  position: relative;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.mac-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 15px;
-}
-
-.mac-header span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.mac-header .red {
-  background-color: #ff5f57;
-}
-
-.mac-header .yellow {
-  background-color: #ffbd2e;
-}
-
-.mac-header .green {
-  background-color: #28c941;
-}
-
-.card-title {
-  font-size: 30px;
-  font-weight: bold;
-  margin: 0 0 10px;
-  color: #e6e6ef;
-}
-
-.card-description {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 15px;
-}
-
-.card .card-tag {
-  display: inline-block;
-  font-size: 10px;
-  border-radius: 5px;
-  background-color: #0d1117;
-  padding: 4px;
-  margin-block-end: 12px;
-  color: #dcdcdc;
-}
-.code-editor {
-  background-color: #0d1117;
-  color: #dcdcdc;
-  font-family:
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    monospace;
-  font-size: 14px;
-  line-height: 1.5;
-  border-radius: 5px;
-  padding: 15px;
-  overflow: auto;
-  height: 150px;
-  border: 1px solid #333;
-}
-
-.code-editor::-webkit-scrollbar {
-  width: 8px;
-}
-
-.code-editor::-webkit-scrollbar-thumb {
-  background: #555;
-  border-radius: 4px;
-}
-
-.code-editor pre code {
-  white-space: pre-wrap;
-  display: block;
-}
-/* From Uiverse.io by lenfear23 */ 
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  cursor: pointer;
-  width: 150px;
-  height: 50px;
-  background-image: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
-  border-radius: 10px;
-  border: 1px solid #8F9092;
-  transition: all 0.2s ease;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  color: #606060;
-  text-shadow: 0 1px #fff;
-  
-}
-
-button:hover {
-  background-image: linear-gradient(to top, #D8D9DB 0%, #fff 50%, #FDFDFD 100%);
-  /* color: #fff; */
-  text-shadow: 0 1px #8F9092;
-  box-shadow: 0 -1px -2px rgba(0, 0, 0, 0.2);
-  /* border: 1px solid #8F9092; */
-}
-
-
-        .user-list {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             display: flex;
-            flex-wrap: wrap;
-            margin-top: 20px;
-            list-style: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        .card {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #0d1117;
+            border-radius: 10px;
+            background-color: #000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            text-align: center;
+            color: #e6e6ef;
+        }
+
+        .mac-header {
+            display: flex;
+            justify-content: flex-start;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .mac-header span {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background-color: #ff5f57; }
+        .yellow { background-color: #ffbd2e; }
+        .green { background-color: #28c941; }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .code-editor {
+            background-color: #0d1117;
+            color: #dcdcdc;
+            font-size: 14px;
+            line-height: 1.5;
+            border-radius: 5px;
+            padding: 15px;
+            overflow: auto;
+            height: 150px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+
+        /* Responsive User List */
+        .user-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .user-list li {
+            background: #222;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Responsive Button */
+        button {
+            width: 100%;
+            max-width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to top, #D8D9DB 0%, #fff 50%, #FDFDFD 100%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
-    <!-- From Uiverse.io by mymiamo --> 
-<div class="card">
-    <div class="mac-header">
-      <span class="red"></span>
-      <span class="yellow"></span>
-      <span class="green"></span>
+    <div class="card">
+        <div class="mac-header">
+            <span class="red"></span>
+            <span class="yellow"></span>
+            <span class="green"></span>
+        </div>
+        <span class="card-title">User List</span>
+        <p class="card-description">Click below to fetch users!</p>
+        <button onclick="fetchUsers()">Load Users</button>
+        <div class="code-editor">
+            <ul class="user-list" id="userList"></ul>
+        </div>
     </div>
-    <span class="card-title">User List</span>
-    <p class="card-description">
-      A glimpse of your code in a clean and Mac-like window. Click to explore!
-    </p>
-    <span class="card-tag"><button onclick="fetchUsers()">Load Users</button></span>
-    <div class="code-editor">
-      <pre><ul class="user-list" id="userList"></ul></pre>
-    </div>
-  </div>
-  
-    <h1></h1>
-    <div class="container">
-        
-        
-    </div>
-
+    
     <script>
         async function fetchUsers() {
             try {
