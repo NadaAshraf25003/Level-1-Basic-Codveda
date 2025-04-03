@@ -4,108 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
-    <style>
-        /* Global Styles */
-        body {
-            background-color: #ebd9b4;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .card {
-            width: 90%;
-            max-width: 600px;
-            padding: 20px;
-            border: 1px solid #0d1117;
-            border-radius: 10px;
-            background-color: #000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-            text-align: center;
-            color: #e6e6ef;
-        }
-
-        .mac-header {
-            display: flex;
-            justify-content: flex-start;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .mac-header span {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .red { background-color: #ff5f57; }
-        .yellow { background-color: #ffbd2e; }
-        .green { background-color: #28c941; }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .card-description {
-            font-size: 14px;
-            color: #ccc;
-            margin-bottom: 15px;
-        }
-
-        .code-editor {
-            background-color: #0d1117;
-            color: #dcdcdc;
-            font-size: 14px;
-            line-height: 1.5;
-            border-radius: 5px;
-            padding: 15px;
-            overflow: auto;
-            height: 150px;
-            border: 1px solid #333;
-            text-align: left;
-        }
-
-        /* Responsive User List */
-        .user-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .user-list li {
-            background: #222;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        /* Responsive Button */
-        button {
-            width: 100%;
-            max-width: 200px;
-            height: 50px;
-            border: none;
-            border-radius: 10px;
-            background: linear-gradient(to top, #D8D9DB 0%, #fff 80%, #FDFDFD 100%);
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-             margin-bottom: 1rem;
-        }
-
-        button:hover {
-            background: linear-gradient(to top, #D8D9DB 0%, #fff 50%, #FDFDFD 100%);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="css.css">
+    <link rel="icon" href="image.png" >
 </head>
 <body>
     <div class="card">
@@ -122,23 +22,6 @@
         </div>
     </div>
     
-    <script>
-        async function fetchUsers() {
-            try {
-                const response = await fetch('http://localhost:3000/users');
-                const users = await response.json();
-                const userList = document.getElementById('userList');
-                userList.innerHTML = '';
-                users.forEach(user => {
-                    const li = document.createElement('li');
-                    li.textContent = `${user.name} - ${user.email}`;
-                    userList.appendChild(li);
-                });
-            } catch (error) {
-                alert('Error fetching users!');
-                console.error(error);
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
